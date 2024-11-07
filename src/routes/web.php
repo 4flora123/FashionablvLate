@@ -1,18 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\ContactController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//indexアクションを呼び出すルーティング
+Route::get('/index', [ContactController::class, 'index']);
+
+//送信ボタンがクリックされた時に confirm アクションが実行されるルーティング
+Route::POST('/contacts/confirm',[ContactController::class, 'confirm']);
